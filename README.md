@@ -92,6 +92,7 @@ http://localhost:8080/v1/games
 
 ### POST a new game
 
+```
 POST /v1/games
 Content-Type: application/json
 Body:
@@ -128,4 +129,4 @@ Contribution
 If you want to contribute to this project, feel free to submit a pull request or open an issue.
 
 Created by Juan Sebastian Ibarra
-
+```
