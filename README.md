@@ -90,8 +90,8 @@ http://localhost:8080/v1/games
 
 ## Example Usage
 
-### POST a new game
 
+### POST a new game
 ````
 POST /v1/games
 Content-Type: application/json
@@ -99,32 +99,40 @@ Body:
 {
   "name": "The Witcher 3"
 }
+````
 
-GET all games
 
+### GET all games
+
+````
 GET /v1/games
+````
 
-GET game by ID
+### GET game by ID
 
+````
 GET /v1/games/1
+````
 
-Update a game by ID
+### Update a game by ID
 
+````
 PUT /v1/games/1
 Content-Type: application/json
 Body:
 {
   "name": "The Witcher 3: Wild Hunt"
 }
-
-
-Delete a game by ID
-
-DELETE /v1/games/1
-
 ````
 
-Exception Handling
+### Delete a game by ID
+
+````
+DELETE /v1/games/1
+````
+
+
+### Exception Handling
 Custom exceptions are handled using the GameException class.
 Errors are logged, and meaningful error responses are returned using the ErrorResponse class.
 
