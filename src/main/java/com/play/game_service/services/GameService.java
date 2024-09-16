@@ -8,16 +8,16 @@ import java.util.List;
 public interface GameService {
 
     // Method to fetch all games from the database
-    public List<Game> getAllGames();
+    List<Game> getAllGames();
 
     // Method to save a new game into the database
-    public Game savedGame(Game gameRequest);
+    Game savedGame(Game gameRequest);
 
     // Method to retrieve a game by its ID
-    public Game getGameById(String id);
+    Game getGameById(String id);
 
     // Method to update an existing game using its ID
-    public Game updateGame(String id, Game gameRequest);
+    Game updateGame(String id, Game gameRequest);
 
     // Method to delete a game by its ID
     void deleteGame(String id);
