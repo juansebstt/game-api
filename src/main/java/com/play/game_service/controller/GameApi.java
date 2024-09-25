@@ -17,7 +17,7 @@ public interface GameApi {
     ResponseEntity<List<Game>> getAllGames();
 
     @PostMapping// Endpoint to save a new game
-    ResponseEntity<Game> saveGame(@RequestBody Game game);
+    ResponseEntity<Game> saveGame(@RequestHeader("userIdRequest") String userId, @RequestBody Game game);
 
     @GetMapping("/{id}") // Endpoint to fetch a specific game by its ID
     ResponseEntity<Game> getGameById(@PathVariable String id);
