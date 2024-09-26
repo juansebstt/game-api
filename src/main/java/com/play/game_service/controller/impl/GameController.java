@@ -31,7 +31,6 @@ public class GameController implements GameApi {
     public ResponseEntity<Game> saveGame(@RequestHeader("userIdRequest") String userId, @RequestBody Game game){
 
         System.out.println(userId);
-
         var gameCreated = this.gameService.savedGame(game);
         return ResponseEntity.ok(gameCreated);
     }
