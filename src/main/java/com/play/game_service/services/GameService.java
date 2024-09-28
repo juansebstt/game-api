@@ -11,7 +11,7 @@ public interface GameService {
     List<Game> getAllGames();
 
     // Method to save a new game into the database
-    Game savedGame(Game gameRequest);
+    Game savedGame(String userId, Game gameRequest);
 
     // Method to retrieve a game by its ID
     Game getGameById(String id);

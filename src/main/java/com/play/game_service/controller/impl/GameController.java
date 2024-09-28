@@ -5,7 +5,6 @@ import com.play.game_service.controller.GameApi;
 import com.play.game_service.services.GameService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -28,10 +27,11 @@ public class GameController implements GameApi {
     }
 
     @Override
-    public ResponseEntity<Game> saveGame(@RequestHeader("userIdRequest") String userId, @RequestBody Game game){
+    public ResponseEntity<Game> saveGame(String userId, @RequestBody Game game){
 
         System.out.println(userId);
-        var gameCreated = this.gameService.savedGame(game);
+        var gameCreated = this.gameService.savedGame(userId, game);
+        System.out.println(gameCreated.getUserId());
         return ResponseEntity.ok(gameCreated);
     }
 

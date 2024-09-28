@@ -19,4 +19,5 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.AUTO) // Automatically generates the ID values for each game
     private long id; // Primary key for the Game entity
     private String name; // The name of the game
+    private String userId;
 }
