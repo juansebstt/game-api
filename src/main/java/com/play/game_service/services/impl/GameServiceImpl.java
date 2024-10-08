@@ -1,5 +1,6 @@
 package com.play.game_service.services.impl;
 
+import com.play.game_service.commons.constants.TopicConstants;
 import com.play.game_service.commons.entities.Game;
 import com.play.game_service.commons.exceptions.GameException;
 import com.play.game_service.repositories.GameRepository;
@@ -31,15 +32,29 @@ public class GameServiceImpl implements GameService {
     public Game savedGame(String userId, Game gameRequest) {
 
         gameRequest.setUserId(userId);
-        System.out.println(gameRequest.getUserId());
-        return this.gameRepository.save(gameRequest);
+        return Optional.of(gameRequest)
+                .map(gameRepository::save)
+                .map(this::sendGameEvent)
+                .orElseThrow(() -> new GameException(HttpStatus.BAD_REQUEST, "Error saving game"));
+
+    }
+
+    private Game sendGameEvent(Game game) {
+
+        Optional.of(game)
+                .map(givenGame -> this.streamBridge.send(TopicConstants.GAME_CREATED_TOPIC, game))
+                .map(bool -> game);
+
+        return game;
 
     }
 
     @Override
     public Game getGameById(String id) {
+
         return this.gameRepository.findById(Long.valueOf(id))
                 .orElseThrow(() -> new GameException(HttpStatus.NOT_FOUND, "Game not found"));
+
     }
 
     @Override
