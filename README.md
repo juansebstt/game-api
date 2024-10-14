@@ -34,7 +34,7 @@ This project is a Spring Boot application that provides a REST API for managing 
 1. **Clone the repository**:
 
     ```bash
-    git clone <https://github.com/your-username/game-service.git>
+    git clone <https://github.com/juansebstt/game-api.git>
     cd game-service
     
     ```
